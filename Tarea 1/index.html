@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Vite + TS with Runner Geeks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+      .app {
+          display: grid;
+          grid-template-columns: 1fr;
+      }
+
+      .first-div {
+          grid-column: 1 / span 2; /* Span both columns */
+          background-color: lightblue;
+          padding: 20px;
+      }
+
+      /* 
+          3.1) La propiedad grid-column: 1 / span 2; hace que el primer div ocupe
+          ambas columnas en la cuadrícula.
+          3.2) La propiedad background-color: lightblue; establece el color de fondo.
+          3.3) La propiedad padding: 20px; agrega espacio interno alrededor del contenido.
+       */
+      .second-div {
+          background-color: lightgreen;
+          padding: 20px;
+          display: grid; /* Enable grid layout for book cards */
+          grid-template-columns: 1fr; /* Default to one column */
+          gap: 20px; /* Add spacing between cards */
+      }
+
+      /* 
+          2.1) Media query para pantallas más grandes (mayores a 768px).
+          2.2) Cambia el diseño de la cuadrícula para mostrar dos columnas.
+          2.3) La propiedad grid-template-columns: 1fr 3fr; define el tamaño de las columnas.
+          2.4) La propiedad grid-column: 1; coloca los logos en la primera columna.
+          2.5) La propiedad grid-column: 2; coloca las tarjetas de libros en la segunda columna.
+      */
+      @media (min-width: 769px) {
+        .app {
+            grid-template-columns: 1fr 3fr; /* Left column (logos) smaller, right column larger */
+        }
+
+        .first-div {
+            grid-column: 1; /* Logos in the left column */
+        }
+
+        .second-div {
+            grid-column: 2; /* Book cards in the right column */
+            grid-template-columns: 1fr 1fr; /* Two columns for book cards */
+        }
+      }
+
+
+      /* 
+          1.1) Media query para ocultar los logos cuando la pantalla
+          es menor a 768px.
+          1.2) La propiedad display: none; oculta el elemento en la pantalla.
+       */
+      @media (max-width: 768px) {
+        .logo {
+          display: none;
+        }
+      }
+  </style>
+
+  </head>
+  <body>
+    <div id="app" class="app">
+      <div class="first-div">
+        <a href="https://vitejs.dev" target="_blank">
+          <img src="vite.svg" class="logo" alt="Vite logo" />
+        </a>
+        <a href="https://www.typescriptlang.org/" target="_blank">
+          <img src="src/typescript.svg" class="logo vanilla" alt="TypeScript logo" />
+        </a>
+        <h1>Vite + TypeScript</h1>
+        <div class="card">
+          <button id="counter" type="button"></button>
+        </div>
+        <p class="read-the-docs">
+          Click on the Vite and TypeScript logos to learn more
+        </p>
+      </div>
+      <div class="second-div" id="bookContainer">
+        <!-- Cards will be dynamically added here -->
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
