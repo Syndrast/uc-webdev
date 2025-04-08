@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Vite + TS with Runner Geeks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+      .app {
+          display: grid;
+          grid-template-columns: 1fr;
+      }
+
+      .first-div {
+          grid-column: 1 / span 2; /* Span both columns */
+          background-color: lightblue;
+          padding: 20px;
+      }
+
+      .second-div {
+          background-color: lightgreen;
+          padding: 20px;
+      }
+  </style>
+
+  </head>
+  <body>
+    <div id="app" class="app">
+      <div class="first-div">
+        <a href="https://vitejs.dev" target="_blank">
+          <img src="vite.svg" class="logo" alt="Vite logo" />
+        </a>
+        <a href="https://www.typescriptlang.org/" target="_blank">
+          <img src="src/typescript.svg" class="logo vanilla" alt="TypeScript logo" />
+        </a>
+        <h1>Vite + TypeScript</h1>
+        <div class="card">
+          <button id="counter" type="button"></button>
+        </div>
+        <p class="read-the-docs">
+          Click on the Vite and TypeScript logos to learn more
+        </p>
+      </div>
+      <div class="second-div" id="bookContainer">
+        <!-- Cards will be dynamically added here -->
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
